@@ -1,16 +1,19 @@
-#!/usr/bin/env bash
-# Task 9
+#!/bin/bash
+
 cleanup_and_exit() {
     sudo rm -f /var/run/myscript.pid
     exit
 }
 
-sudo bash -c "echo $ > /var/run/myscript.pid"
+# Script-in PID-ni /var/run/myscript.pid faylına yaz
+sudo bash -c "echo $$ > /var/run/myscript.pid"
 
+# Sinyallara trap qur
 trap 'echo "I hate the kill command"; cleanup_and_exit' SIGTERM
 trap 'echo "Y U no love me?!"' SIGINT
 trap 'cleanup_and_exit' SIGQUIT
 
+# Sonsuz loop
 while true
 do
     echo "To infinity and beyond"
