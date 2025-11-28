@@ -1,1 +1,1 @@
-salam
+Shell, init files, variables and expansions
