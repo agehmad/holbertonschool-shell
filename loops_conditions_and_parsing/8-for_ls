@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Task 8
+for file in *; do
+	echo "${file#*-}"
+done
